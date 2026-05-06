@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <!-- TODO: Replace with your paper title and author names -->
+  <meta name="title" content="LiteVGGT: Boosting Vanilla VGGT via Geometry-aware Cached Token Merging">
+  <!-- TODO: Write a compelling 150-160 character description of your research -->
+  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <!-- TODO: Add 5-10 relevant keywords for your research area -->
+  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
+  <!-- TODO: List all authors -->
+  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <!-- TODO: Replace with your institution or lab name -->
+  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
+  <!-- TODO: Same as paper title above -->
+  <meta property="og:title" content="PAPER_TITLE">
+  <!-- TODO: Same as description above -->
+  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <!-- TODO: Replace with your actual website URL -->
+  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
+  <!-- TODO: Create a 1200x630px preview image and update path -->
+  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
+  <meta property="article:author" content="FIRST_AUTHOR_NAME">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="KEYWORD1">
+  <meta property="article:tag" content="KEYWORD2">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- TODO: Replace with your lab/institution Twitter handle -->
+  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
+  <!-- TODO: Replace with first author's Twitter handle -->
+  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
+  <!-- TODO: Same as paper title above -->
+  <meta name="twitter:title" content="PAPER_TITLE">
+  <!-- TODO: Same as description above -->
+  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <!-- TODO: Same as social preview image above -->
+  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="PAPER_TITLE">
+  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
+  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
+  <meta name="citation_publication_date" content="2024">
+  <meta name="citation_conference_title" content="CONFERENCE_NAME">
+  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <!-- TODO: Replace with your paper title and authors -->
+  <title>LiteVGGT</title>
+  
+
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "PAPER_TITLE",
+    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "FIRST_AUTHOR_NAME",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "INSTITUTION_NAME"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "SECOND_AUTHOR_NAME",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "INSTITUTION_NAME"
+        }
+      }
+    ],
+    "datePublished": "2024-01-01",
+    "publisher": {
+      "@type": "Organization",
+      "name": "CONFERENCE_OR_JOURNAL_NAME"
+    },
+    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
+    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
+    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
+    "abstract": "FULL_ABSTRACT_TEXT_HERE",
+    "citation": "BIBTEX_CITATION_HERE",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "RESEARCH_AREA_1"
+      },
+      {
+        "@type": "Thing", 
+        "name": "RESEARCH_AREA_2"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "INSTITUTION_OR_LAB_NAME",
+    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
+    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
+    "sameAs": [
+      "https://twitter.com/YOUR_TWITTER_HANDLE",
+      "https://github.com/YOUR_GITHUB_USERNAME"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- TODO: Replace with your paper title -->
+            <h1 class="title is-1 publication-title"><i>LiteVGGT</i> :Boosting Vanilla VGGT via Geometry-aware Cached Token Merging</h1>
+            <p class="is-size-3 has-text-centered has-text-weight-semibold"
+               style="margin-top: 8px; margin-bottom: 8px;">
+              CVPR 2026
+            </p>
+            <div class="is-size-5 publication-authors">
+            
+              <span class="author-block">
+                <a href="https://garlicba.github.io/" target="_blank">Zhijian Shu</a><sup>1,2,3*</sup>,
+              </span>
+            
+              <span class="author-block">
+                <a href="https://clinplayer.github.io/" target="_blank">Cheng Lin</a><sup>5</sup>,
+              </span>
+            
+              <span class="author-block">
+                <a href="https://github.com/xbillowy" target="_blank">Tao Xie</a><sup>2,4</sup>,
+              </span>
+            
+              <span class="author-block">
+                <a href="https://yvanyin.xyz/" target="_blank">Wei Yin</a><sup>2</sup>,
+              </span>
+            
+              <span class="author-block">
+                <a href="https://github.com/fanerlight" target="_blank">Ben Li</a><sup>7</sup>,
+              </span>
+            
+              <span class="author-block">
+                <a href="https://openreview.net/profile?id=~Zhiyuan_Pu1" target="_blank">Zhiyuan Pu</a><sup>7</sup>,
+              </span>
+
+              <span class="author-block">
+                <a href="https://ericlee0224.github.io/" target="_blank">Weize Li</a><sup>6</sup>,
+              </span>
+
+              <span class="author-block">
+                <a href="https://yoyo000.github.io/" target="_blank">Yao Yao</a><sup>3</sup>,
+              </span>
+            
+              <span class="author-block">
+                <a href="https://cite.nju.edu.cn/People/Faculty/20190621/i5054.html" target="_blank">Xun Cao</a><sup>3</sup>,
+              </span>
+            
+              <span class="author-block">
+                <a href="https://xy-guo.github.io/" target="_blank">Xiaoyang Guo</a><sup>2</sup>,
+              </span>
+            
+              <span class="author-block">
+                <a href="https://www.xxlong.site/" target="_blank">Xiao-Xiao Long</a><sup>3†</sup>
+              </span>
+            
+            </div>
+
+
+
+                  <div class="is-size-5 publication-authors">
+                    <!-- TODO: Replace with your institution and conference/journal info -->
+                    <span class="author-block">
+                      <sup>1</sup> Nanjing University of Posts and Telecommunications,
+                      <sup>2</sup> Horizon Robotics,<br>
+                      <sup>3</sup> Nanjing University,
+                      <sup>4</sup> Zhejiang University,
+                      <sup>5</sup> Macau University of Science and Technology,<br>
+                      <sup>6</sup> TARS Robotics,
+                      <sup>7</sup> China Mobile Zijin Innovation Institute
+                    </span>
+                    <br> 
+                    <!-- TODO: Remove this line if no equal contribution -->
+                    <span class="eql-cntrb"><small><sup>*</sup> Intern at Horizon Robotics and Nanjing University.</small></span>
+                    <span class="eql-cntrb"><small><sup>†</sup> Corresponding author.</small></span>
+
+                  </div>
+
+
+
+                <!-- TODO: Update with your arXiv paper ID -->
+                <span class="link-block">
+                  <a href="http://arxiv.org/abs/2512.04939" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+                  <!-- TODO: Replace with your GitHub repository URL -->
+                  <span class="link-block">
+                    <a href="https://github.com/GarlicBa/LiteVGGT-repo" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser Image -->
+<section class="hero teaser" style="padding-top: 0rem; padding-bottom: 0.5rem; margin-top: -1rem;">
+  <div class="container is-max-desktop">
+    <div class="hero-body" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+
+      <!-- Replace video with a single banner image -->
+      <img src="static/images/teaser.png" 
+           alt="LiteVGGT teaser" 
+           style="width:110%; border-radius:8px;">
+
+      <h2 class="subtitle has-text-centered">
+        For 1000 input images, LiteVGGT achieves a <b>10× speedup</b> over VGGT while maintaining high accuracy in camera pose and point cloud prediction. Its scalability and robustness make large-scale scene reconstruction more efficient and reliable.
+      </h2>
+
+    </div>
+  </div>
+</section>
+<!-- End teaser -->
+
+
+
+<!-- abstract -->
+<section class="section hero is-light"
+  style="padding-top: 1.5rem; padding-bottom: 1.5rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <!-- TODO: Replace with your paper abstract -->
+          <p>
+           3D vision foundation models like Visual Geometry Grounded Transformer (VGGT) have advanced greatly in geometric perception. However it is time-consuming and memory-intensive for long sequences, limiting application to large-scale scenes beyond hundreds of images. To address this, we propose LiteVGGT, achieving up to 10× speedup and substantial memory reduction, enabling efficient processing of 1000-image scenes. We derive two key insights for 3D reconstruction: 1) tokens from local image regions have inherent geometric correlations, leading to high similarity and computational redundancy; 2) token similarity acroses adjacent network layers remains stable, allowing for reusable merge decisions. Guided by these, we design a simple yet efficient strategy, dubbed geometry-aware cached token merging . We analyze each token’s geometric importance, optimizing anchor token selection to better preserve key information for reconstruction. We also cache and reuse merge indices across layers, substantially reducing latency with minimal accuracy impact. This strategy retains VGGT’s core performance, enabling efficient fine-tuning and FP8 quantization for further gains. Extensive experiments validate LiteVGGT’s effectiveness, scalability, and robustness.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+ <!-- merge pipeline -->
+<section class="hero teaser" style="padding: 0.5rem 0;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+
+      <!-- Replace video with a single banner image -->
+      <img src="static/images/pipeline.png" 
+           alt="LiteVGGT pipeline" 
+           style="width:100%; border-radius:8px;">
+
+      <h2 class="subtitle has-text-centered">
+        We augment VGGT by placing a <b>Geometry-aware Token Merging</b> module on both sides of its global attention.
+        Within GA-merge, tokens are partitioned by the GA map, grouped and merged to reduce redundancy.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser -->
+
+
+<!-- Two Demo Section -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+
+      <!-- === 第一组 Demo === -->
+      <div class="columns is-vcentered">
+        <!-- 左图 -->
+        <div class="column is-half">
+          <img src="static/images/demo1.png" alt="Demo 1 Image" style="width: 100%; height: auto; border-radius: 8px;">
+        </div>
+
+        <!-- 右视频 -->
+        <div class="column is-half">
+          <video autoplay controls muted loop style="width: 100%; height: 100%; border-radius: 8px;" preload="metadata">
+            <source src="static/videos/grasp_demo1.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- === 第二组 Demo === -->
+      <div class="columns is-vcentered">
+        <!-- 左图 -->
+        <div class="column is-half">
+          <img src="static/images/demo2.png" alt="Demo 2 Image" style="width: 100%; height: auto; border-radius: 8px;">
+        </div>
+
+        <!-- 右视频 -->
+        <div class="column is-half">
+          <video autoplay controls muted loop style="width: 100%; height: 100%; border-radius: 8px;" preload="metadata">
+            <source src="static/videos/grasp_demo2.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- === 底部注释 === -->
+      <h2 class="subtitle has-text-centered" style="margin-top: 2rem;">
+        LiteVGGT’s reconstructed point clouds are used for <b>robotic grasping</b>. Despite minor reconstruction deviations, the accuracy is sufficient for end-side grasp execution, demonstrating the practical reliability of LiteVGGT.
+      </h2>
+
+    </div>
+  </div>
+</section>
+<!-- End Two Demo Section -->
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+
+      <h2 class="title is-3 has-text-centered">Reconstruction Point Cloud Demos</h2>
+
+      <!-- 自定义样式 -->
+      <style>
+        .demo-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.2rem;
+          margin-top: 1.5rem;
+        }
+        .demo-item video {
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+        }
+        .demo-item {
+          text-align: center;
+        }
+      </style>
+
+      <!-- 九宫格开始 -->
+      <div class="demo-grid">
+
+        <!-- 1 -->
+        <div class="demo-item">
+          <video controls muted loop preload="metadata">
+            <source src="static/videos/tnt-Barn.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- 2 -->
+        <div class="demo-item">
+          <video controls muted loop preload="metadata">
+            <source src="static/videos/NRGBD-morning_apartment.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- 3 -->
+        <div class="demo-item">
+          <video controls muted loop preload="metadata">
+            <source src="static/videos/DTU-scan4.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- 4 -->
+        <div class="demo-item">
+          <video controls muted loop preload="metadata">
+            <source src="static/videos/tnt-Truck.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- 5 -->
+        <div class="demo-item">
+          <video controls muted loop preload="metadata">
+            <source src="static/videos/7scenes-pumpkin.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- 6 -->
+        <div class="demo-item">
+          <video controls muted loop preload="metadata">
+            <source src="static/videos/NRGBD-complete_kitchen.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- 7 -->
+        <div class="demo-item">
+          <video controls muted loop preload="metadata">
+            <source src="static/videos/mip-nerf-360-garden.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- 8 -->
+        <div class="demo-item">
+          <video controls muted loop preload="metadata">
+            <source src="static/videos/7scenes-redkitchen.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- 9 -->
+        <div class="demo-item">
+          <video controls muted loop preload="metadata">
+            <source src="static/videos/tnt-train.mp4" type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+      <!-- 九宫格结束 -->
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- <section class="hero is-small" style="padding-top: 1rem; padding-bottom: 1rem;">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Reconstruction Demonstration Comparisons</h2>
+
+      <style>
+        .results-carousel video {
+          width: 80%;
+          height: auto;
+          margin: 0 auto;
+          display: block;
+          border-radius: 8px;
+        }
+      </style>
+
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <video controls muted loop preload="metadata">
+            <source src="static/videos/Barn_merged.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video controls muted loop preload="metadata">
+            <source src="static/videos/truck_merged.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video controls muted loop preload="metadata">
+            <source src="static/videos/heads_merged.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video controls muted loop preload="metadata">
+            <source src="static/videos/pupkin_merged.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section class="hero teaser" style="padding: 0; margin: 0;">
+  <div class="container is-max-desktop">
+    <div class="hero-body" style="padding: 0;">
+      <img src="static/images/eval1.png" alt="LiteVGGT pipeline" style="width:100%; border-radius:8px;">
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser" style="padding: 0; margin-top: -0.5rem;">
+  <div class="container is-max-desktop">
+    <div class="hero-body" style="padding: 0;">
+      <img src="static/images/eval2.png" alt="LiteVGGT pipeline" style="width:100%; border-radius:8px;">
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+<pre id="bibtex-code"><code>@article{shu2025litevggt,
+  title={LiteVGGT: Boosting Vanilla VGGT via Geometry-aware Cached Token Merging},
+  author={Shu, Zhijian and Lin, Cheng and Xie, Tao and Yin, Wei and Li, Ben and Pu, Zhiyuan and Li, Weize and Yao, Yao and Cao, Xun and Guo, Xiaoyang and others},
+  journal={arXiv preprint arXiv:2512.04939},
+  year={2025}
+}</code></pre>
+
+    </div>
+</section>
+<!-- End BibTex citation -->
+
+
+
+
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
