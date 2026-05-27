@@ -1,351 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="ActiveFly-Bench: Bridging the Gap Between Embodied QA and Language-Guided Control for UAV Active Perception">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ActiveFly-Bench | Aerial Embodied Perception</title>
+  <meta name="description" content="ActiveFly-Bench aligns embodied question answering with vision-language-action for UAV active perception.">
+  <meta name="keywords" content="ActiveFly-Bench, UAV, active perception, embodied question answering, VLA, Air-EQA, OBP, FLUC">
   <meta name="robots" content="index, follow">
-  <meta name="language" content="English">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
-  <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
-
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
-  <!-- Preconnect for performance -->
+  <meta property="og:title" content="ActiveFly-Bench">
+  <meta property="og:description" content="Aligning Embodied Question Answering with Vision-Language-Action for Aerial Embodied Perception.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="static/paper/figure-overview.png">
+  <meta name="theme-color" content="#07111f">
+  <link rel="icon" href="static/images/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-
-
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>ActiveFly</title>
-  
-
-  
-  <!-- Critical CSS - Load synchronously -->
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
-  <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  </noscript>
-  
-  <!-- Fonts - Optimized loading -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
-  <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data for Academic Papers -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
-    "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
-    ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
-  }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Spectral:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
+  <nav class="navbar" id="navbar" aria-label="Primary navigation">
+    <div class="nav-container">
+      <a class="nav-logo" href="#top" aria-label="ActiveFly-Bench home">
+        <span class="nav-mark">A</span>
+        <span>ActiveFly-Bench</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#tasks">Tasks</a></li>
+        <li><a href="#dataset">Dataset</a></li>
+        <li><a href="#agent">Agent</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#deployment">Deployment</a></li>
+        <li><a href="#citation">Citation</a></li>
+      </ul>
+    </div>
+  </nav>
 
+  <header class="hero" id="top">
+    <div class="hero-scroll-stage" aria-hidden="true">
+      <div class="hero-scroll-row row-a">
+        <div class="hero-scroll-set">
+          <img src="static/image_title/1.png" alt="">
+          <img src="static/image_title/3.png" alt="">
+          <img src="static/image_title/5.png" alt="">
+          <img src="static/image_title/6.png" alt="">
+          <img src="static/image_title/7.png" alt="">
+          <img src="static/image_title/9.png" alt="">
+        </div>
+        <div class="hero-scroll-set">
+          <img src="static/image_title/1.png" alt="">
+          <img src="static/image_title/3.png" alt="">
+          <img src="static/image_title/5.png" alt="">
+          <img src="static/image_title/6.png" alt="">
+          <img src="static/image_title/7.png" alt="">
+          <img src="static/image_title/9.png" alt="">
+        </div>
+      </div>
+      <div class="hero-scroll-row row-b">
+        <div class="hero-scroll-set">
+          <img src="static/image_title/9.png" alt="">
+          <img src="static/image_title/7.png" alt="">
+          <img src="static/image_title/6.png" alt="">
+          <img src="static/image_title/5.png" alt="">
+          <img src="static/image_title/3.png" alt="">
+          <img src="static/image_title/1.png" alt="">
+        </div>
+        <div class="hero-scroll-set">
+          <img src="static/image_title/9.png" alt="">
+          <img src="static/image_title/7.png" alt="">
+          <img src="static/image_title/6.png" alt="">
+          <img src="static/image_title/5.png" alt="">
+          <img src="static/image_title/3.png" alt="">
+          <img src="static/image_title/1.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-shade" aria-hidden="true"></div>
 
-  <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
+    <div class="container hero-shell">
+      <div class="hero-copy" data-reveal>
+        <p class="hero-kicker">NeurIPS 2026 Submission</p>
+        <h1>ActiveFly-Bench</h1>
+        <p class="hero-context">Aligning Embodied Question Answering with Vision-Language-Action for Aerial Embodied Perception</p>
+        <div class="hero-actions">
+          <a class="hero-link primary" href="5175_ActiveFly_Bench_Aligning_.pdf" target="_blank" rel="noopener">Paper PDF</a>
+          <a class="hero-link" href="#overview">Overview</a>
+          <a class="hero-link" href="#results">Results</a>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-mouse"><span></span></div>
+      </div>
+    </div>
+  </header>
 
+  <main>
+    <section class="section first-section" id="overview">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section-tag">Overview</p>
+          <h2>Bridging Reasoning, Planning, and Aerial Control</h2>
+          <p class="section-intro">ActiveFly-Bench is built for language-guided UAV active perception, where an agent must reason from a question, plan how to observe, execute fine-grained control, and answer from the gathered visual evidence.</p>
+        </div>
 
-  <main id="main-content">
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title"><i>ActiveFly-Bench</i>: Bridging the Gap Between Embodied QA and Language-Guided Control for UAV Active Perception</h1>
-            <p class="is-size-3 has-text-centered has-text-weight-semibold"
-               style="margin-top: 8px; margin-bottom: 8px;">
+        <div class="feature-grid">
+          <article class="feature-card" data-reveal data-delay="0">
+            <span class="feature-number">01</span>
+            <h3>First Linked Benchmark</h3>
+            <p>It bridges high-level embodied question answering and low-level UAV action execution instead of evaluating them as isolated capabilities.</p>
+          </article>
+          <article class="feature-card" data-reveal data-delay="90">
+            <span class="feature-number">02</span>
+            <h3>Three Aligned Subtasks</h3>
+            <p>Air-EQA, OBP, and FLUC share the same semantic route from question to observation behavior to executable UAV movement.</p>
+          </article>
+          <article class="feature-card" data-reveal data-delay="180">
+            <span class="feature-number">03</span>
+            <h3>Real-World Agent</h3>
+            <p>ActiveFly combines VLM planning with VLA control and is validated on a physical UAV through a ground-drone collaborative system.</p>
+          </article>
+        </div>
 
-            </p>
-            <div class="is-size-5 publication-authors">
-            
+        <figure class="paper-figure overview-figure" data-reveal>
+          <img src="static/paper/figure-overview.png" alt="Overview of ActiveFly-Bench" loading="lazy" decoding="async">
+          <figcaption>Figure 1. ActiveFly-Bench decomposes language-guided active perception into QA, behavior planning, and fine-grained control.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-            
-            </div>
+    <section class="section contrast" id="abstract">
+      <div class="container narrow">
+        <div class="section-head centered" data-reveal>
+          <p class="section-tag">Abstract</p>
+          <h2>Aerial Embodied Perception</h2>
+        </div>
+        <div class="text-block" data-reveal>
+          <p>ActiveFly-Bench is introduced as a benchmark for connecting cyberspace reasoning and physical-world interaction in UAV embodied perception. It decomposes active perception into Aerial Embodied Question Answering, Observation Behavior Planning, and Fine-grained Language-guided UAV Control, explicitly linking high-level task understanding, behavior planning, and low-level control.</p>
+          <p>The datasets are collected from real-world and simulated outdoor environments. ActiveFly is further developed as a closed-loop UAV agent that integrates visual-language reasoning with fine-grained control. Experiments with representative VLMs and VLA models show that current agents still struggle with observation planning, viewpoint adjustment, and robust task completion.</p>
+        </div>
+      </div>
+    </section>
 
+    <section class="section" id="tasks">
+      <div class="container">
+        <div class="split-layout">
+          <div class="section-head" data-reveal>
+            <p class="section-tag">Tasks</p>
+            <h2>Three Semantically Aligned Subtasks</h2>
+            <p class="section-intro">The benchmark asks whether a UAV can answer an embodied question by deciding where to look and then executing the motion needed to obtain the right viewpoint.</p>
+          </div>
+          <div class="task-flow" data-reveal>
+            <article>
+              <span>Air-EQA</span>
+              <p>Answer an aerial embodied question after actively collecting relevant observations.</p>
+            </article>
+            <article>
+              <span>OBP</span>
+              <p>Infer the observation behavior needed to answer the question from the initial view.</p>
+            </article>
+            <article>
+              <span>FLUC</span>
+              <p>Generate fine-grained UAV-body and gimbal actions that reach a task-relevant viewpoint.</p>
+            </article>
+          </div>
+        </div>
 
+        <figure class="paper-figure" data-reveal>
+          <img src="static/paper/figure-tasks.png" alt="Examples of Air-EQA, OBP, and FLUC tasks" loading="lazy" decoding="async">
+          <figcaption>Figure 2. Air-EQA covers object, attribute, counting, spatial, and world-knowledge questions; OBP bridges the question and FLUC control instruction.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">
+    <section class="section contrast" id="dataset">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section-tag">Dataset</p>
+          <h2>Real and Simulated UAV Active Perception Data</h2>
+          <p class="section-intro">The benchmark is built from expert trajectories and human-validated QA/planning annotations, keeping the three subtasks aligned at the semantic level.</p>
+        </div>
 
-                    </span>
-                    <br> 
-                    <!-- TODO: Remove this line if no equal contribution -->
+        <div class="stat-grid">
+          <article class="stat-card" data-reveal>
+            <strong>500</strong>
+            <span>Active perception tasks</span>
+          </article>
+          <article class="stat-card" data-reveal data-delay="80">
+            <strong>10K</strong>
+            <span>FLUC trajectories</span>
+          </article>
+          <article class="stat-card" data-reveal data-delay="160">
+            <strong>2.6K</strong>
+            <span>QA and planning pairs</span>
+          </article>
+          <article class="stat-card" data-reveal data-delay="240">
+            <strong>6.2K</strong>
+            <span>Simulation trajectories</span>
+          </article>
+          <article class="stat-card" data-reveal data-delay="320">
+            <strong>1.9K</strong>
+            <span>Real indoor trajectories</span>
+          </article>
+          <article class="stat-card" data-reveal data-delay="400">
+            <strong>1.9K</strong>
+            <span>Real outdoor trajectories</span>
+          </article>
+        </div>
 
+        <figure class="paper-figure" data-reveal>
+          <img src="static/paper/figure-dataset.png" alt="Dataset generation pipeline and statistics" loading="lazy" decoding="async">
+          <figcaption>Figure 3. Dataset generation pipeline, trajectory length distribution, annotation length distribution, data composition, and word cloud.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-                  </div>
+    <section class="section" id="agent">
+      <div class="container">
+        <div class="section-head centered" data-reveal>
+          <p class="section-tag">ActiveFly Agent</p>
+          <h2>Closed-Loop VLM + VLA System</h2>
+          <p class="section-intro">ActiveFly first uses a VLM to plan the observation behavior, passes that plan to a VLA model for fine-grained UAV action prediction, and then answers the embodied question from sampled observation history.</p>
+        </div>
 
+        <div class="agent-board" data-reveal>
+          <div class="agent-node">Question + Initial View</div>
+          <div class="agent-node">VLM Observation Plan</div>
+          <div class="agent-core">ActiveFly</div>
+          <div class="agent-node">VLA UAV Actions</div>
+          <div class="agent-node">Answer from History</div>
+        </div>
 
+        <div class="feature-grid compact">
+          <article class="feature-card" data-reveal>
+            <span class="feature-number">Plan</span>
+            <h3>Observation Behavior</h3>
+            <p>The VLM predicts how the UAV should move or adjust viewpoint to acquire missing information.</p>
+          </article>
+          <article class="feature-card" data-reveal data-delay="90">
+            <span class="feature-number">Act</span>
+            <h3>Fine-Grained Control</h3>
+            <p>The VLA consumes the observation plan, current observation, and UAV state to predict control actions.</p>
+          </article>
+          <article class="feature-card" data-reveal data-delay="180">
+            <span class="feature-number">Answer</span>
+            <h3>History-Aware QA</h3>
+            <p>After execution, the VLM answers from a sampled observation history; the paper uses 16 images in practice.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-                <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
-                  <a href="" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
+    <section class="section contrast" id="results">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section-tag">Experiments</p>
+          <h2>Performance and Failure Modes</h2>
+          <p class="section-intro">The evaluation combines VLMs such as GPT-5.4, Gemini-2.5-Pro, and Qwen3-VL-Max with VLA models including OpenVLA and Pi-0.5, plus human upper-bound settings.</p>
+        </div>
 
+        <div class="results-layout">
+          <figure class="paper-figure" data-reveal>
+            <img src="static/paper/table-performance.png" alt="Performance comparison table" loading="lazy" decoding="async">
+            <figcaption>Table 2. Representative baselines across EP, Air-EQA, OBP, and FLUC.</figcaption>
+          </figure>
+          <div class="result-notes" data-reveal>
+            <article>
+              <strong>Pi-0.5 improves action success.</strong>
+              <p>Pi-0.5-based agents reach much higher EP success than OpenVLA-based agents, with stronger FLUC SR and OSR.</p>
+            </article>
+            <article>
+              <strong>Human upper bound remains far away.</strong>
+              <p>The human agent reaches 97.3 EP SR, 98.2 Air-EQA accuracy, and 99.1 OBP accuracy.</p>
+            </article>
+            <article>
+              <strong>Planning and viewpoint control are bottlenecks.</strong>
+              <p>The analysis highlights OBP failure, Air-EQA escape, and imprecise stopping near target viewpoints.</p>
+            </article>
+          </div>
+        </div>
 
-            </div>
+        <figure class="paper-figure" data-reveal>
+          <img src="static/paper/figure-error.png" alt="Category-level performance and error breakdown" loading="lazy" decoding="async">
+          <figcaption>Figure 4. Category-level performance, error breakdown, and an Air-EQA escaped case.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="deployment">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section-tag">Real-World Deployment</p>
+          <h2>Ground-Drone Collaborative Active Perception</h2>
+          <p class="section-intro">The real-world system streams first-person video and UAV state to a ground station, runs VLM/VLA inference on a server, and returns actions for closed-loop execution.</p>
+        </div>
+
+        <div class="deployment-grid">
+          <figure class="paper-figure" data-reveal>
+            <img src="static/paper/figure-deployment.png" alt="Real-world deployment of ActiveFly agent" loading="lazy" decoding="async">
+            <figcaption>Figure 5. ActiveFly deployment examples in outdoor and indoor environments.</figcaption>
+          </figure>
+          <div class="latency-panel" data-reveal>
+            <div class="latency-row"><span>Image transmission</span><strong>~120 ms</strong></div>
+            <div class="latency-row"><span>VLA inference</span><strong>~250 ms</strong></div>
+            <div class="latency-row"><span>Motion planning</span><strong>~10 ms</strong></div>
+            <div class="latency-row"><span>PID response</span><strong>~10 ms</strong></div>
+            <div class="latency-row total"><span>Total control loop</span><strong>~390 ms</strong></div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Teaser Image -->
-
-<!-- End teaser -->
-
-
-
-<!-- abstract -->
-<section class="section hero is-light"
-  style="padding-top: 1.5rem; padding-bottom: 1.5rem;">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-           We introduce ActiveFly-Bench, a benchmark for evaluating UAV intelligence in language-guided active perception. The benchmark decomposes active perception into three hierarchical tasks: Aerial-EQA, Observation Behavior Planning (OBP), and Fine-grained Language-guided UAV Control (FLUC), explicitly connecting high-level task understanding, behavior planning, and low-level control. In particular, FLUC is the first dataset to jointly model UAV-body and gimbal control for viewpoint-aware action execution. ActiveFly-Bench is built through a bottom-up pipeline from expert-collected trajectories in both simulated and real-world environments, yielding semantically aligned data across all three tasks. We further develop ActiveFly, a closed-loop UAV agent that integrates visual-language reasoning with fine-grained control, and deploy it on a physical UAV platform. Experiments with representative VLMs and VLA models show that current UAV agents still struggle with behavior planning, viewpoint adjustment, and robust task completion in active perception. These results establish ActiveFly-Bench as a new testbed for embodied aerial intelligence.          </p>
+    <section class="section contrast" id="citation">
+      <div class="container narrow">
+        <div class="citation-head" data-reveal>
+          <div>
+            <p class="section-tag">Citation</p>
+            <h2>BibTeX</h2>
+          </div>
+          <button class="copy-button" type="button" id="copyBibtex">Copy</button>
         </div>
+        <pre data-reveal><code id="bibtexCode">@misc{activeflybench2026,
+  title = {ActiveFly-Bench: Aligning Embodied Question Answering with Vision-Language-Action for Aerial Embodied Perception},
+  author = {Anonymous Author(s)},
+  year = {2026},
+  note = {Submitted to NeurIPS 2026}
+}</code></pre>
       </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container narrow">
+      <p>ActiveFly-Bench project page.</p>
     </div>
-  </div>
-</section>
-<!-- End paper abstract -->
+  </footer>
 
-
- <!-- merge pipeline -->
-
-<!-- End teaser -->
-
-
-<!-- Two Demo Section -->
-
-<!-- End Two Demo Section -->
-
-
-
-
-
-<!-- <section class="hero is-small" style="padding-top: 1rem; padding-bottom: 1rem;">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3 has-text-centered">Reconstruction Demonstration Comparisons</h2>
-
-      <style>
-        .results-carousel video {
-          width: 80%;
-          height: auto;
-          margin: 0 auto;
-          display: block;
-          border-radius: 8px;
-        }
-      </style>
-
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item">
-          <video controls muted loop preload="metadata">
-            <source src="static/videos/Barn_merged.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item">
-          <video controls muted loop preload="metadata">
-            <source src="static/videos/truck_merged.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item">
-          <video controls muted loop preload="metadata">
-            <source src="static/videos/heads_merged.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item">
-          <video controls muted loop preload="metadata">
-            <source src="static/videos/pupkin_merged.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-
-
-
-
-
-
-<!--BibTex citation -->
-
-<!-- End BibTex citation -->
-
-
-
-
-
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+  <script src="static/js/main.js"></script>
+</body>
+</html>
