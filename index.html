@@ -34,6 +34,7 @@
         <li><a href="#overview">Overview</a></li>
         <li><a href="#tasks">Tasks</a></li>
         <li><a href="#dataset">Dataset</a></li>
+        <li><a href="#demo">Demo</a></li>
         <li><a href="#agent">Agent</a></li>
         <li><a href="#results">Results</a></li>
         <li><a href="#deployment">Deployment</a></li>
@@ -90,9 +91,23 @@
         <h1>ActiveFly-Bench</h1>
         <p class="hero-context">Aligning Embodied Question Answering with Vision-Language-Action for Aerial Embodied Perception</p>
         <div class="hero-actions">
-          <a class="hero-link primary" href="5175_ActiveFly_Bench_Aligning_.pdf" target="_blank" rel="noopener">Paper PDF</a>
+          <a class="hero-link primary" href="#demo">Demo</a>
           <a class="hero-link" href="#overview">Overview</a>
           <a class="hero-link" href="#results">Results</a>
+        </div>
+        <div class="hero-resource-links" aria-label="Project resource links">
+          <a class="resource-link coming-soon" aria-disabled="true">
+            <span>GitHub</span>
+            <em>Coming Soon</em>
+          </a>
+          <a class="resource-link coming-soon" aria-disabled="true">
+            <span>arXiv</span>
+            <em>Coming Soon</em>
+          </a>
+          <a class="resource-link coming-soon" aria-disabled="true">
+            <span>Hugging Face</span>
+            <em>Coming Soon</em>
+          </a>
         </div>
       </div>
       <div class="scroll-cue" aria-hidden="true">
@@ -219,6 +234,141 @@
           <img src="static/paper/figure-dataset.png" alt="Dataset generation pipeline and statistics" loading="lazy" decoding="async">
           <figcaption>Figure 3. Dataset generation pipeline, trajectory length distribution, annotation length distribution, data composition, and word cloud.</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section class="section" id="demo">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section-tag">Demo</p>
+          <h2>OpenVLA and Pi-0.5 Demo Videos</h2>
+          <p class="section-intro">Six demo videos compare OpenVLA and Pi-0.5 across the same three benchmark cases. Each row keeps the matched OpenVLA and Pi-0.5 rollout together for direct visual comparison.</p>
+        </div>
+
+        <div class="demo-video-grid" aria-label="ActiveFly demo videos">
+          <div class="demo-video-row" data-reveal>
+            <figure class="demo-video-card">
+              <div class="demo-card-head">
+                <span>OpenVLA</span>
+                <strong>Demo 1</strong>
+              </div>
+              <video controls muted loop playsinline preload="metadata" aria-label="OpenVLA demo 1 video">
+                <source src="static/videos/OpenVLA_1.mp4" type="video/mp4">
+              </video>
+            </figure>
+
+            <figure class="demo-video-card">
+              <div class="demo-card-head">
+                <span>Pi-0.5</span>
+                <strong>Demo 1</strong>
+              </div>
+              <video controls muted loop playsinline preload="metadata" aria-label="Pi-0.5 demo 1 video">
+                <source src="static/videos/pi_0.5_1.mp4" type="video/mp4">
+              </video>
+            </figure>
+          </div>
+
+          <div class="demo-video-row" data-reveal data-delay="100">
+            <figure class="demo-video-card">
+              <div class="demo-card-head">
+                <span>OpenVLA</span>
+                <strong>Demo 2</strong>
+              </div>
+              <video controls muted loop playsinline preload="metadata" aria-label="OpenVLA demo 2 video">
+                <source src="static/videos/OpenVLA_2.mp4" type="video/mp4">
+              </video>
+            </figure>
+
+            <figure class="demo-video-card">
+              <div class="demo-card-head">
+                <span>Pi-0.5</span>
+                <strong>Demo 2</strong>
+              </div>
+              <video controls muted loop playsinline preload="metadata" aria-label="Pi-0.5 demo 2 video">
+                <source src="static/videos/pi_0.5_2.mp4" type="video/mp4">
+              </video>
+            </figure>
+          </div>
+
+          <div class="demo-video-row" data-reveal data-delay="200">
+            <figure class="demo-video-card">
+              <div class="demo-card-head">
+                <span>OpenVLA</span>
+                <strong>Demo 3</strong>
+              </div>
+              <video controls muted loop playsinline preload="metadata" aria-label="OpenVLA demo 3 video">
+                <source src="static/videos/OpenVLA_3.mp4" type="video/mp4">
+              </video>
+            </figure>
+
+            <figure class="demo-video-card">
+              <div class="demo-card-head">
+                <span>Pi-0.5</span>
+                <strong>Demo 3</strong>
+              </div>
+              <video controls muted loop playsinline preload="metadata" aria-label="Pi-0.5 demo 3 video">
+                <source src="static/videos/pi_0.5_3.mp4" type="video/mp4">
+              </video>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sample">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section-tag">Sample</p>
+          <h2>Frame-Aligned Video and Motion Trajectory</h2>
+          <p class="section-intro">A sample trajectory from the benchmark is shown with its first-person observation video and synchronized UAV motion path. The image sequence in <code>sample/</code> is encoded at 0.15 seconds per frame.</p>
+        </div>
+
+        <div class="sample-layout">
+          <figure class="sample-panel sample-video-panel" data-reveal>
+            <video controls autoplay muted loop playsinline preload="metadata" poster="sample/000001.png" aria-label="ActiveFly sample observation video">
+              <source src="static/sample/sample_frames.mp4" type="video/mp4">
+            </video>
+            <figcaption>Observation video generated from 80 sample frames at 0.15 s/frame.</figcaption>
+          </figure>
+
+          <figure class="sample-panel sample-trajectory-panel" data-reveal data-delay="100">
+            <video controls autoplay muted loop playsinline preload="metadata" poster="static/sample/sample_3d_poster.png" aria-label="ActiveFly sample 3D trajectory video">
+              <source src="static/sample/sample_3d.mp4" type="video/mp4">
+            </video>
+            <figcaption>White-background 3D motion trajectory generated from <code>sample/log.json</code>, synchronized to the image frames.</figcaption>
+          </figure>
+        </div>
+
+        <div class="sample-meta-grid" data-reveal>
+          <article>
+            <span>Target</span>
+            <strong>Blue overhead billboard</strong>
+          </article>
+          <article>
+            <span>Environment</span>
+            <strong>Beijing</strong>
+          </article>
+          <article>
+            <span>Frames</span>
+            <strong>80 frames</strong>
+          </article>
+          <article>
+            <span>Duration</span>
+            <strong>12.00 s</strong>
+          </article>
+        </div>
+
+        <div class="sample-instruction" data-reveal>
+          <span>Instruction</span>
+          <p>Move right until you are in front of the blue overhead billboard while adjusting camera left to keep the blue overhead billboard in the centre of the camera. Then move down until you are in front of the blue overhead billboard while adjusting camera up to keep the blue overhead billboard in the centre of the camera.</p>
+        </div>
+
+        <div class="sample-actions" aria-label="Sample action labels" data-reveal>
+          <span>right x24</span>
+          <span>turn_left x6</span>
+          <span>down x10</span>
+          <span>camera_up x5</span>
+        </div>
       </div>
     </section>
 
