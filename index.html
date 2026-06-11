@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ActiveFly-Bench | Aerial Embodied Perception</title>
+  <meta name="description" content="ActiveFly-Bench aligns embodied question answering with vision-language-action for UAV active perception.">
+  <meta name="keywords" content="ActiveFly-Bench, UAV, active perception, embodied question answering, VLA, Air-EQA, OBP, FLUC">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="ActiveFly-Bench">
+  <meta property="og:description" content="Aligning Embodied Question Answering with Vision-Language-Action for Aerial Embodied Perception.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="static/paper/figure-overview.png">
+  <meta name="theme-color" content="#07111f">
+  <link rel="icon" href="static/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Spectral:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar" aria-label="Primary navigation">
+    <div class="nav-container">
+      <a class="nav-logo" href="#top" aria-label="ActiveFly-Bench home">
+        <span class="nav-mark">A</span>
+        <span>ActiveFly-Bench</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#tasks">Tasks</a></li>
+        <li><a href="#dataset">Dataset</a></li>
+        <li><a href="#demo">Demo</a></li>
+        <li><a href="#agent">Agent</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#deployment">Deployment</a></li>
+        <li><a href="#citation">Citation</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-scroll-stage" aria-hidden="true">
+      <div class="hero-scroll-row row-a">
+        <div class="hero-scroll-set">
+          <img src="static/image_title/1.png" alt="">
+          <img src="static/image_title/3.png" alt="">
+          <img src="static/image_title/5.png" alt="">
+          <img src="static/image_title/6.png" alt="">
+          <img src="static/image_title/7.png" alt="">
+          <img src="static/image_title/9.png" alt="">
+        </div>
+        <div class="hero-scroll-set">
+          <img src="static/image_title/1.png" alt="">
+          <img src="static/image_title/3.png" alt="">
+          <img src="static/image_title/5.png" alt="">
+          <img src="static/image_title/6.png" alt="">
+          <img src="static/image_title/7.png" alt="">
+          <img src="static/image_title/9.png" alt="">
+        </div>
+      </div>
+      <div class="hero-scroll-row row-b">
+        <div class="hero-scroll-set">
+          <img src="static/image_title/9.png" alt="">
+          <img src="static/image_title/7.png" alt="">
+          <img src="static/image_title/6.png" alt="">
+          <img src="static/image_title/5.png" alt="">
+          <img src="static/image_title/3.png" alt="">
+          <img src="static/image_title/1.png" alt="">
+        </div>
+        <div class="hero-scroll-set">
+          <img src="static/image_title/9.png" alt="">
+          <img src="static/image_title/7.png" alt="">
+          <img src="static/image_title/6.png" alt="">
+          <img src="static/image_title/5.png" alt="">
+          <img src="static/image_title/3.png" alt="">
+          <img src="static/image_title/1.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-shade" aria-hidden="true"></div>
+
+    <div class="container hero-shell">
+      <div class="hero-copy" data-reveal>
+        <p class="hero-kicker"> </p>
+        <h1>ActiveFly-Bench</h1>
+        <p class="hero-context">Aligning Embodied Question Answering with Vision-Language-Action for Aerial Embodied Perception</p>
+        <div class="hero-actions">
+          <a class="hero-link primary" href="#demo">Demo</a>
+          <a class="hero-link" href="#overview">Overview</a>
+          <a class="hero-link" href="#results">Results</a>
+        </div>
+        <div class="hero-resource-links" aria-label="Project resource links">
+          <a class="resource-link coming-soon" aria-disabled="true">
+            <span>GitHub</span>
+            <em>Coming Soon</em>
+          </a>
+          <a class="resource-link coming-soon" aria-disabled="true">
+            <span>arXiv</span>
+            <em>Coming Soon</em>
+          </a>
+          <a class="resource-link coming-soon" aria-disabled="true">
+            <span>Hugging Face</span>
+            <em>Coming Soon</em>
+          </a>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-mouse"><span></span></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section first-section" id="overview">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section-tag">Overview</p>
+          <h2>Bridging Reasoning, Planning, and Aerial Control</h2>
+          <p class="section-intro">ActiveFly-Bench is built for language-guided UAV active perception, where an agent must reason from a question, plan how to observe, execute fine-grained control, and answer from the gathered visual evidence.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card" data-reveal data-delay="0">
+            <span class="feature-number">01</span>
+            <h3>First Linked Benchmark</h3>
+            <p>It bridges high-level embodied question answering and low-level UAV action execution instead of evaluating them as isolated capabilities.</p>
+          </article>
+          <article class="feature-card" data-reveal data-delay="90">
+            <span class="feature-number">02</span>
+            <h3>Three Aligned Subtasks</h3>
+            <p>Air-EQA, OBP, and FLUC share the same semantic route from question to observation behavior to executable UAV movement.</p>
+          </article>
+          <article class="feature-card" data-reveal data-delay="180">
+            <span class="feature-number">03</span>
+            <h3>Real-World Agent</h3>
+            <p>ActiveFly combines VLM planning with VLA control and is validated on a physical UAV through a ground-drone collaborative system.</p>
+          </article>
+        </div>
+
+        <figure class="paper-figure overview-figure" data-reveal>
+          <img src="static/paper/figure-overview.png" alt="Overview of ActiveFly-Bench" loading="lazy" decoding="async">
+          <figcaption>Figure 1. ActiveFly-Bench decomposes language-guided active perception into QA, behavior planning, and fine-grained control.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section contrast" id="abstract">
+      <div class="container narrow">
+        <div class="section-head centered" data-reveal>
+          <p class="section-tag">Abstract</p>
+          <h2>Aerial Embodied Perception</h2>
+        </div>
+        <div class="text-block" data-reveal>
+          <p>ActiveFly-Bench is introduced as a benchmark for connecting cyberspace reasoning and physical-world interaction in UAV embodied perception. It decomposes active perception into Aerial Embodied Question Answering, Observation Behavior Planning, and Fine-grained Language-guided UAV Control, explicitly linking high-level task understanding, behavior planning, and low-level control.</p>
+          <p>The datasets are collected from real-world and simulated outdoor environments. ActiveFly is further developed as a closed-loop UAV agent that integrates visual-language reasoning with fine-grained control. Experiments with representative VLMs and VLA models show that current agents still struggle with observation planning, viewpoint adjustment, and robust task completion.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tasks">
+      <div class="container">
+        <div class="split-layout">
+          <div class="section-head" data-reveal>
+            <p class="section-tag">Tasks</p>
+            <h2>Three Semantically Aligned Subtasks</h2>
+            <p class="section-intro">The benchmark asks whether a UAV can answer an embodied question by deciding where to look and then executing the motion needed to obtain the right viewpoint.</p>
+          </div>
+          <div class="task-flow" data-reveal>
+            <article>
+              <span>Air-EQA</span>
+              <p>Answer an aerial embodied question after actively collecting relevant observations.</p>
+            </article>
+            <article>
+              <span>OBP</span>
+              <p>Infer the observation behavior needed to answer the question from the initial view.</p>
+            </article>
+            <article>
+              <span>FLUC</span>
+              <p>Generate fine-grained UAV-body and gimbal actions that reach a task-relevant viewpoint.</p>
+            </article>
+          </div>
+        </div>
+
+        <figure class="paper-figure" data-reveal>
+          <img src="static/paper/figure-tasks.png" alt="Examples of Air-EQA, OBP, and FLUC tasks" loading="lazy" decoding="async">
+          <figcaption>Figure 2. Air-EQA covers object, attribute, counting, spatial, and world-knowledge questions; OBP bridges the question and FLUC control instruction.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section contrast" id="dataset">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section-tag">Dataset</p>
+          <h2>Real and Simulated UAV Active Perception Data</h2>
+          <p class="section-intro">The benchmark is built from expert trajectories and human-validated QA/planning annotations, keeping the three subtasks aligned at the semantic level.</p>
+        </div>
+
+        <div class="stat-grid">
+          <article class="stat-card" data-reveal>
+            <strong>500</strong>
+            <span>Active perception tasks</span>
+          </article>
+          <article class="stat-card" data-reveal data-delay="80">
+            <strong>10K</strong>
+            <span>FLUC trajectories</span>
+          </article>
+          <article class="stat-card" data-reveal data-delay="160">
+            <strong>2.6K</strong>
+            <span>QA and planning pairs</span>
+          </article>
+          <article class="stat-card" data-reveal data-delay="240">
+            <strong>6.2K</strong>
+            <span>Simulation trajectories</span>
+          </article>
+          <article class="stat-card" data-reveal data-delay="320">
+            <strong>1.9K</strong>
+            <span>Real indoor trajectories</span>
+          </article>
+          <article class="stat-card" data-reveal data-delay="400">
+            <strong>1.9K</strong>
+            <span>Real outdoor trajectories</span>
+          </article>
+        </div>
+
+        <figure class="paper-figure" data-reveal>
+          <img src="static/paper/figure-dataset.png" alt="Dataset generation pipeline and statistics" loading="lazy" decoding="async">
+          <figcaption>Figure 3. Dataset generation pipeline, trajectory length distribution, annotation length distribution, data composition, and word cloud.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="demo">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section-tag">Demo</p>
+          <h2>Benchmark Demo Videos</h2>
+          <p class="section-intro">The paired benchmark videos compare OpenVLA and Pi-0.5 on matched rollout cases, while the real-world collection demos are shown as standalone UAV videos.</p>
+        </div>
+
+        <div class="demo-video-grid" aria-label="ActiveFly demo videos">
+          <div class="demo-video-row" data-reveal>
+            <figure class="demo-video-card">
+              <div class="demo-card-head">
+                <span>OpenVLA</span>
+                <strong>Demo 1</strong>
+              </div>
+              <video controls muted loop playsinline preload="metadata" aria-label="OpenVLA demo 1 video">
+                <source src="static/videos/OpenVLA_1.mp4" type="video/mp4">
+              </video>
+            </figure>
+
+            <figure class="demo-video-card">
+              <div class="demo-card-head">
+                <span>Pi-0.5</span>
+                <strong>Demo 1</strong>
+              </div>
+              <video controls muted loop playsinline preload="metadata" aria-label="Pi-0.5 demo 1 video">
+                <source src="static/videos/pi_0.5_1.mp4" type="video/mp4">
+              </video>
+            </figure>
+          </div>
+
+          <div class="demo-video-row" data-reveal data-delay="100">
+            <figure class="demo-video-card">
+              <div class="demo-card-head">
+                <span>OpenVLA</span>
+                <strong>Demo 2</strong>
+              </div>
+              <video controls muted loop playsinline preload="metadata" aria-label="OpenVLA demo 2 video">
+                <source src="static/videos/OpenVLA_2.mp4" type="video/mp4">
+              </video>
+            </figure>
+
+            <figure class="demo-video-card">
+              <div class="demo-card-head">
+                <span>Pi-0.5</span>
+                <strong>Demo 2</strong>
+              </div>
+              <video controls muted loop playsinline preload="metadata" aria-label="Pi-0.5 demo 2 video">
+                <source src="static/videos/pi_0.5_2.mp4" type="video/mp4">
+              </video>
+            </figure>
+          </div>
+
+          <div class="demo-video-row" data-reveal data-delay="200">
+            <figure class="demo-video-card">
+              <div class="demo-card-head">
+                <span>OpenVLA</span>
+                <strong>Demo 3</strong>
+              </div>
+              <video controls muted loop playsinline preload="metadata" aria-label="OpenVLA demo 3 video">
+                <source src="static/videos/OpenVLA_3.mp4" type="video/mp4">
+              </video>
+            </figure>
+
+            <figure class="demo-video-card">
+              <div class="demo-card-head">
+                <span>Pi-0.5</span>
+                <strong>Demo 3</strong>
+              </div>
+              <video controls muted loop playsinline preload="metadata" aria-label="Pi-0.5 demo 3 video">
+                <source src="static/videos/pi_0.5_3.mp4" type="video/mp4">
+              </video>
+            </figure>
+          </div>
+
+                    <div class="demo-video-row" data-reveal data-delay="200">
+            <figure class="demo-video-card">
+              <div class="demo-card-head">
+                <span>OpenVLA</span>
+                <strong>Demo 4</strong>
+              </div>
+              <video controls muted loop playsinline preload="metadata" aria-label="OpenVLA demo 4 video">
+                <source src="static/videos/OpenVLA_4.mp4" type="video/mp4">
+              </video>
+            </figure>
+
+            <figure class="demo-video-card">
+              <div class="demo-card-head">
+                <span>Pi-0.5</span>
+                <strong>Demo 4</strong>
+              </div>
+              <video controls muted loop playsinline preload="metadata" aria-label="Pi-0.5 demo 4 video">
+                <source src="static/videos/pi_0.5_4.mp4" type="video/mp4">
+              </video>
+            </figure>
+          </div>
+        </div>
+
+        <div class="demo-subhead" id="real-demo" data-reveal>
+          <p class="section-tag">Real-World Demos</p>
+          <h3>Real Scene Collection</h3>
+          <p>These demos are collected from real indoor and outdoor scenes, so each video is displayed as a standalone row without a model-to-model comparison.</p>
+        </div>
+
+        <div class="real-demo-list" aria-label="ActiveFly real-world collection demo videos">
+          <figure class="demo-video-card real-demo-card" data-reveal>
+            <div class="demo-card-head">
+              <span>Indoor</span>
+              <strong>Demo example 1</strong>
+            </div>
+            <video controls muted loop playsinline preload="metadata" aria-label="Indoor normal fly pass left real-world demo">
+              <source src="static/ppt/real_video_demo/indoor/normal_fly_pass_left.mp4" type="video/mp4">
+            </video>
+          </figure>
+
+          <figure class="demo-video-card real-demo-card" data-reveal>
+            <div class="demo-card-head">
+              <span>Indoor</span>
+              <strong>Demo example 2</strong>
+            </div>
+            <video controls muted loop playsinline preload="metadata" aria-label="Indoor ORI table monitor left real-world demo">
+              <source src="static/ppt/real_video_demo/indoor/ori_table_monitor_left.mp4" type="video/mp4">
+            </video>
+          </figure>
+
+          <figure class="demo-video-card real-demo-card" data-reveal>
+            <div class="demo-card-head">
+              <span>Indoor</span>
+              <strong>Demo example 3</strong>
+            </div>
+            <video controls muted loop playsinline preload="metadata" aria-label="Indoor OOC ball chair real-world demo">
+              <source src="static/ppt/real_video_demo/indoor/ooc_ball_chair.mp4" type="video/mp4">
+            </video>
+          </figure>
+
+          <figure class="demo-video-card real-demo-card" data-reveal>
+            <div class="demo-card-head">
+              <span>Indoor</span>
+              <strong>Demo example 4</strong>
+            </div>
+            <video controls muted loop playsinline preload="metadata" aria-label="Indoor OOC box ball real-world demo">
+              <source src="static/ppt/real_video_demo/indoor/ooc_box_ball.mp4" type="video/mp4">
+            </video>
+          </figure>
+
+          <figure class="demo-video-card real-demo-card" data-reveal>
+            <div class="demo-card-head">
+              <span>Indoor Failure</span>
+              <strong>Failed Demo 1</strong>
+            </div>
+            <video controls muted loop playsinline preload="metadata" aria-label="Indoor failed normal fly pass left real-world demo">
+              <source src="static/ppt/real_video_demo/indoor/failed_normal_fly_pass_left.mp4" type="video/mp4">
+            </video>
+          </figure>
+
+          <figure class="demo-video-card real-demo-card" data-reveal>
+            <div class="demo-card-head">
+              <span>Indoor Failure</span>
+              <strong>Failed Demo 2</strong>
+            </div>
+            <video controls muted loop playsinline preload="metadata" aria-label="Indoor failed ORI table monitor right real-world demo">
+              <source src="static/ppt/real_video_demo/indoor/failed_ori_table_monitor_right.mp4" type="video/mp4">
+            </video>
+          </figure>
+
+          <figure class="demo-video-card real-demo-card" data-reveal>
+            <div class="demo-card-head">
+              <span>Outdoor</span>
+              <strong>Demo example 1</strong>
+            </div>
+            <video controls muted loop playsinline preload="metadata" aria-label="Outdoor normal pass right real-world demo">
+              <source src="static/ppt/real_video_demo/outdoor/normal_pass_right.mp4" type="video/mp4">
+            </video>
+          </figure>
+
+          <figure class="demo-video-card real-demo-card" data-reveal>
+            <div class="demo-card-head">
+              <span>Outdoor</span>
+              <strong>Demo example 2</strong>
+            </div>
+            <video controls muted loop playsinline preload="metadata" aria-label="Outdoor ORI Xuesilou right real-world demo">
+              <source src="static/ppt/real_video_demo/outdoor/ori_xuesilou_right.mp4" type="video/mp4">
+            </video>
+          </figure>
+
+          <figure class="demo-video-card real-demo-card" data-reveal>
+            <div class="demo-card-head">
+              <span>Outdoor</span>
+              <strong>Demo example 3</strong>
+            </div>
+            <video controls muted loop playsinline preload="metadata" aria-label="Outdoor tree real-world demo">
+              <source src="static/ppt/real_video_demo/outdoor/tree.mp4" type="video/mp4">
+            </video>
+          </figure>
+
+          <figure class="demo-video-card real-demo-card" data-reveal>
+            <div class="demo-card-head">
+              <span>Outdoor Failure</span>
+              <strong>Failed demo 1</strong>
+            </div>
+            <video controls muted loop playsinline preload="metadata" aria-label="Outdoor normal pass right failed real-world demo">
+              <source src="static/ppt/real_video_demo/outdoor/normal_pass_right_failed.mp4" type="video/mp4">
+            </video>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sample">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section-tag">Sample</p>
+          <h2>Frame-Aligned Video and Motion Trajectory</h2>
+          <p class="section-intro">A sample trajectory from the benchmark is shown with its first-person observation video and synchronized UAV motion path. The image sequence in <code>sample/</code> is encoded at 0.15 seconds per frame.</p>
+        </div>
+
+        <div class="sample-layout">
+          <figure class="sample-panel sample-video-panel" data-reveal>
+            <video controls autoplay muted loop playsinline preload="metadata" poster="sample/000001.png" aria-label="ActiveFly sample observation video">
+              <source src="static/sample/sample_frames.mp4" type="video/mp4">
+            </video>
+            <figcaption>Observation video generated from 80 sample frames at 0.15 s/frame.</figcaption>
+          </figure>
+
+          <figure class="sample-panel sample-trajectory-panel" data-reveal data-delay="100">
+            <video controls autoplay muted loop playsinline preload="metadata" poster="static/sample/sample_3d_poster.png" aria-label="ActiveFly sample 3D trajectory video">
+              <source src="static/sample/sample_3d.mp4" type="video/mp4">
+            </video>
+            <figcaption>White-background 3D motion trajectory generated from <code>sample/log.json</code>, synchronized to the image frames.</figcaption>
+          </figure>
+        </div>
+
+        <div class="sample-meta-grid" data-reveal>
+          <article>
+            <span>Target</span>
+            <strong>Blue overhead billboard</strong>
+          </article>
+          <article>
+            <span>Environment</span>
+            <strong>Beijing</strong>
+          </article>
+          <article>
+            <span>Frames</span>
+            <strong>80 frames</strong>
+          </article>
+          <article>
+            <span>Duration</span>
+            <strong>12.00 s</strong>
+          </article>
+        </div>
+
+        <div class="sample-instruction" data-reveal>
+          <span>Instruction</span>
+          <p>Move right until you are in front of the blue overhead billboard while adjusting camera left to keep the blue overhead billboard in the centre of the camera. Then move down until you are in front of the blue overhead billboard while adjusting camera up to keep the blue overhead billboard in the centre of the camera.</p>
+        </div>
+
+        <div class="sample-actions" aria-label="Sample action labels" data-reveal>
+          <span>right x24</span>
+          <span>turn_left x6</span>
+          <span>down x10</span>
+          <span>camera_up x5</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="agent">
+      <div class="container">
+        <div class="section-head centered" data-reveal>
+          <p class="section-tag">ActiveFly Agent</p>
+          <h2>Closed-Loop VLM + VLA System</h2>
+          <p class="section-intro">ActiveFly first uses a VLM to plan the observation behavior, passes that plan to a VLA model for fine-grained UAV action prediction, and then answers the embodied question from sampled observation history.</p>
+        </div>
+
+        <div class="agent-board" data-reveal>
+          <div class="agent-node">Question + Initial View</div>
+          <div class="agent-node">VLM Observation Plan</div>
+          <div class="agent-core">ActiveFly</div>
+          <div class="agent-node">VLA UAV Actions</div>
+          <div class="agent-node">Answer from History</div>
+        </div>
+
+        <div class="feature-grid compact">
+          <article class="feature-card" data-reveal>
+            <span class="feature-number">Plan</span>
+            <h3>Observation Behavior</h3>
+            <p>The VLM predicts how the UAV should move or adjust viewpoint to acquire missing information.</p>
+          </article>
+          <article class="feature-card" data-reveal data-delay="90">
+            <span class="feature-number">Act</span>
+            <h3>Fine-Grained Control</h3>
+            <p>The VLA consumes the observation plan, current observation, and UAV state to predict control actions.</p>
+          </article>
+          <article class="feature-card" data-reveal data-delay="180">
+            <span class="feature-number">Answer</span>
+            <h3>History-Aware QA</h3>
+            <p>After execution, the VLM answers from a sampled observation history; the paper uses 16 images in practice.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contrast" id="results">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section-tag">Experiments</p>
+          <h2>Performance and Failure Modes</h2>
+          <p class="section-intro">The evaluation combines VLMs such as GPT-5.4, Gemini-2.5-Pro, and Qwen3-VL-Max with VLA models including OpenVLA and Pi-0.5, plus human upper-bound settings.</p>
+        </div>
+
+        <div class="results-layout">
+          <figure class="paper-figure" data-reveal>
+            <img src="static/paper/table-performance.png" alt="Performance comparison table" loading="lazy" decoding="async">
+            <figcaption>Table 2. Representative baselines across EP, Air-EQA, OBP, and FLUC.</figcaption>
+          </figure>
+          <div class="result-notes" data-reveal>
+            <article>
+              <strong>Pi-0.5 improves action success.</strong>
+              <p>Pi-0.5-based agents reach much higher EP success than OpenVLA-based agents, with stronger FLUC SR and OSR.</p>
+            </article>
+            <article>
+              <strong>Human upper bound remains far away.</strong>
+              <p>The human agent reaches 97.3 EP SR, 98.2 Air-EQA accuracy, and 99.1 OBP accuracy.</p>
+            </article>
+            <article>
+              <strong>Planning and viewpoint control are bottlenecks.</strong>
+              <p>The analysis highlights OBP failure, Air-EQA escape, and imprecise stopping near target viewpoints.</p>
+            </article>
+          </div>
+        </div>
+
+        <figure class="paper-figure" data-reveal>
+          <img src="static/paper/figure-error.png" alt="Category-level performance and error breakdown" loading="lazy" decoding="async">
+          <figcaption>Figure 4. Category-level performance, error breakdown, and an Air-EQA escaped case.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="deployment">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section-tag">Real-World Deployment</p>
+          <h2>Ground-Drone Collaborative Active Perception</h2>
+          <p class="section-intro">The real-world system streams first-person video and UAV state to a ground station, runs VLM/VLA inference on a server, and returns actions for closed-loop execution.</p>
+        </div>
+
+        <div class="deployment-grid">
+          <figure class="paper-figure" data-reveal>
+            <img src="static/paper/figure-deployment.png" alt="Real-world deployment of ActiveFly agent" loading="lazy" decoding="async">
+            <figcaption>Figure 5. ActiveFly deployment examples in outdoor and indoor environments.</figcaption>
+          </figure>
+          <div class="latency-panel" data-reveal>
+            <div class="latency-row"><span>Image transmission</span><strong>~120 ms</strong></div>
+            <div class="latency-row"><span>VLA inference</span><strong>~250 ms</strong></div>
+            <div class="latency-row"><span>Motion planning</span><strong>~10 ms</strong></div>
+            <div class="latency-row"><span>PID response</span><strong>~10 ms</strong></div>
+            <div class="latency-row total"><span>Total control loop</span><strong>~390 ms</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contrast" id="citation">
+      <div class="container narrow">
+        <div class="citation-head" data-reveal>
+          <div>
+            <p class="section-tag">Citation</p>
+            <h2>BibTeX</h2>
+          </div>
+          <button class="copy-button" type="button" id="copyBibtex">Copy</button>
+        </div>
+        <pre data-reveal><code id="bibtexCode">@misc{activeflybench2026,
+  title = {ActiveFly-Bench: Aligning Embodied Question Answering with Vision-Language-Action for Aerial Embodied Perception},
+  author = {Weichen Zhang, Shiquan Yu, Yinan Zhu, Peizhi Tang, Shilong Ji, Zhiyuan Deng, Tianyi Lyu, Haoyang Wang, Xin Zeng, Chen Gao, Yong Li, Xinlei Chen },
+  year = {2026},
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container narrow">
+      <p>ActiveFly-Bench project page.</p>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>

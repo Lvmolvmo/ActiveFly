@@ -1,0 +1,122 @@
+[INFO] 2026-05-29 17:06:57,711 - Subscribed ROS image topic: /gimbal/image_raw
+[INFO] 2026-05-29 17:06:57,715 - Subscribed ROS odom topic: /ekf_quat/ekf_odom
+[INFO] 2026-05-29 17:06:57,715 - Subscribed ROS gimbal topic: /gimbal/state
+[INFO] 2026-05-29 17:06:57,720 - Subscribed VLA status topic: /vla_status
+[INFO] 2026-05-29 17:06:57,720 - Publishing predicted world pose to ROS topic: /predicted_world_pose
+[INFO] 2026-05-29 17:06:57,721 - Publishing VLA waypoint to ROS topic: /vla_waypoint
+[INFO] 2026-05-29 17:06:57,721 - Waiting for first ROS image from /gimbal/image_raw ...
+[INFO] 2026-05-29 17:06:57,732 - Received VLA status seq=0 status=0 message=fsm initialized pos_err=0.000 yaw_err=0.000 pitch_err=0.000
+[INFO] 2026-05-29 17:06:57,821 - Waiting for first real pose ...
+[INFO] 2026-05-29 17:06:57,822 - Initial Real Pose: [0.002665105525427221, 0.015391047763846722, 1.1145486729967973, -0.019295104379860435, 0.16]
+[INFO] 2026-05-29 17:06:57,822 - Starting Control Loop...
+[INFO] 2026-05-29 17:06:57,822 - LOOP ITERATION: 0
+[INFO] 2026-05-29 17:06:58,187 - Current Real Pose: [-0.004425794229027976, 0.0073452833871483535, 1.1089359212417123, -0.3647988490065157, 0.04]
+[INFO] 2026-05-29 17:06:58,187 - Current Proprio Real: [-0.007088189944624901, -0.00804815161973238, -0.0056127519346773624, -0.3455037474632263, -0.11999999731779099]
+[INFO] 2026-05-29 17:06:58,474 - --- Model Prediction ---
+[INFO] 2026-05-29 17:06:58,474 - Model Prediction: [-0.006616129229572935, -0.00852627066541449, -0.005662011085361601, -0.006741224123035794, -0.0019067857873044242]
+[INFO] 2026-05-29 17:06:58,475 - Calculated Deltas -> x: 0.000, y: -0.000, z: -0.000, yaw: -0.041, pitch: 0.011
+[INFO] 2026-05-29 17:06:58,475 - Calculated World Pose -> x: -0.004, y: -0.007, z: 1.109, yaw: 0.406, pitch: 0.051
+[INFO] 2026-05-29 17:06:58,475 - Published VLA waypoint seq=1 frame=world pos=(-0.004, -0.007, 1.109) yaw_deg=0.406 pitch_deg=0.051
+[INFO] 2026-05-29 17:06:58,476 - Received VLA status seq=1 status=1 message=accepted vla waypoint pos_err=0.014 yaw_err=0.091 pitch_err=0.051
+[INFO] 2026-05-29 17:06:58,691 - Received VLA status seq=1 status=2 message=vla waypoint completed pos_err=0.029 yaw_err=0.288 pitch_err=0.000
+[INFO] 2026-05-29 17:06:59,644 - Pose Updated to: [-0.02016944 -0.00266717 -0.03233579 -0.9538614  -0.29      ]
+[INFO] 2026-05-29 17:06:59,658 - LOOP ITERATION: 1
+[INFO] 2026-05-29 17:07:00,015 - Current Real Pose: [0.00041033162869078606, -0.0132019539287195, 1.0849669605139316, -1.4297758454636424, 0.19]
+[INFO] 2026-05-29 17:07:00,015 - Current Proprio Real: [-0.002245144685730338, -0.028593759983778, -0.029581712558865547, -1.4104807376861572, 0.029999999329447746]
+[INFO] 2026-05-29 17:07:00,370 - --- Model Prediction ---
+[INFO] 2026-05-29 17:07:00,370 - Model Prediction: [0.13322201028823338, -0.08020505223309592, -0.03623724114340436, -0.01745143010038655, 0.0007112079539918076]
+[INFO] 2026-05-29 17:07:00,371 - Calculated Deltas -> x: 0.135, y: -0.052, z: -0.007, yaw: 0.411, pitch: 0.011
+[INFO] 2026-05-29 17:07:00,371 - Calculated World Pose -> x: 0.136, y: 0.065, z: 1.078, yaw: 1.019, pitch: 0.201
+[INFO] 2026-05-29 17:07:00,372 - Published VLA waypoint seq=2 frame=world pos=(0.136, 0.065, 1.078) yaw_deg=1.019 pitch_deg=0.201
+[INFO] 2026-05-29 17:07:00,373 - Received VLA status seq=2 status=1 message=accepted vla waypoint pos_err=0.144 yaw_err=1.700 pitch_err=0.201
+[INFO] 2026-05-29 17:07:00,472 - Received VLA status seq=2 status=2 message=vla waypoint completed pos_err=0.152 yaw_err=1.674 pitch_err=0.000
+[INFO] 2026-05-29 17:07:01,393 - Pose Updated to: [ 0.09657241 -0.02006502 -0.06422826 -1.9815984   0.2       ]
+[INFO] 2026-05-29 17:07:01,393 - LOOP ITERATION: 2
+[INFO] 2026-05-29 17:07:01,740 - Current Real Pose: [0.12824592875392937, -0.030285130164359457, 1.0696178514748391, -1.8818302079638578, 0.18]
+[INFO] 2026-05-29 17:07:01,740 - Current Proprio Real: [0.12559619545936584, -0.04563388600945473, -0.044930823147296906, -1.8625351190567017, 0.019999999552965164]
+[INFO] 2026-05-29 17:07:02,049 - --- Model Prediction ---
+[INFO] 2026-05-29 17:07:02,049 - Model Prediction: [0.12320294251384341, -0.09193024824707036, -0.047182172109265993, -0.048972714769457276, -0.00547313694328308]
+[INFO] 2026-05-29 17:07:02,050 - Calculated Deltas -> x: -0.002, y: -0.046, z: -0.002, yaw: -0.943, pitch: -0.334
+[INFO] 2026-05-29 17:07:02,050 - Calculated World Pose -> x: 0.126, y: 0.077, z: 1.067, yaw: 2.825, pitch: -0.154
+[INFO] 2026-05-29 17:07:02,050 - Published VLA waypoint seq=3 frame=world pos=(0.126, 0.077, 1.067) yaw_deg=2.825 pitch_deg=-0.154
+[INFO] 2026-05-29 17:07:02,051 - Received VLA status seq=3 status=1 message=accepted vla waypoint pos_err=0.035 yaw_err=1.763 pitch_err=0.154
+[INFO] 2026-05-29 17:07:02,254 - Received VLA status seq=3 status=2 message=vla waypoint completed pos_err=0.032 yaw_err=1.846 pitch_err=0.000
+[INFO] 2026-05-29 17:07:03,273 - Pose Updated to: [ 0.10517564 -0.07288937 -0.0530443  -2.2861068  -0.01      ]
+[INFO] 2026-05-29 17:07:03,274 - LOOP ITERATION: 3
+[INFO] 2026-05-29 17:07:03,612 - Current Real Pose: [0.08625534127847999, -0.07548969561880191, 1.0576294615104427, -1.9995597918883645, -0.14]
+[INFO] 2026-05-29 17:07:03,612 - Current Proprio Real: [0.0836208388209343, -0.09085258841514587, -0.05691920965909958, -1.980264663696289, -0.30000001192092896]
+[INFO] 2026-05-29 17:07:04,026 - --- Model Prediction ---
+[INFO] 2026-05-29 17:07:04,027 - Model Prediction: [0.1363151050035824, -0.11801358299791778, -0.06724488792911316, -0.03999947255937339, -0.005048378509690546]
+[INFO] 2026-05-29 17:07:04,028 - Calculated Deltas -> x: 0.053, y: -0.027, z: -0.010, yaw: -0.312, pitch: 0.011
+[INFO] 2026-05-29 17:07:04,028 - Calculated World Pose -> x: 0.139, y: 0.103, z: 1.047, yaw: 2.311, pitch: -0.129
+[INFO] 2026-05-29 17:07:04,029 - Published VLA waypoint seq=4 frame=world pos=(0.139, 0.103, 1.047) yaw_deg=2.311 pitch_deg=-0.129
+[INFO] 2026-05-29 17:07:04,030 - Received VLA status seq=4 status=1 message=accepted vla waypoint pos_err=0.072 yaw_err=0.586 pitch_err=0.129
+[INFO] 2026-05-29 17:07:04,088 - Received VLA status seq=4 status=2 message=vla waypoint completed pos_err=0.072 yaw_err=0.467 pitch_err=0.000
+[INFO] 2026-05-29 17:07:05,006 - Pose Updated to: [ 0.14626686 -0.08851819 -0.06921449 -2.5225775  -0.19      ]
+[INFO] 2026-05-29 17:07:05,007 - LOOP ITERATION: 4
+[INFO] 2026-05-29 17:07:05,360 - Current Real Pose: [0.1383966833728399, -0.08361528201907326, 1.039078318062523, -2.6894077051305363, -0.32]
+[INFO] 2026-05-29 17:07:05,360 - Current Proprio Real: [0.13576491177082062, -0.09896061569452286, -0.07547035813331604, -2.6701126098632812, -0.47999998927116394]
+[INFO] 2026-05-29 17:07:05,691 - --- Model Prediction ---
+[INFO] 2026-05-29 17:07:05,692 - Model Prediction: [0.3513527907847026, -0.16498239975638865, -0.061573048479196174, -0.05046416245889551, -0.0064728816261611505]
+[INFO] 2026-05-29 17:07:05,692 - Calculated Deltas -> x: 0.216, y: -0.066, z: 0.014, yaw: -0.221, pitch: 0.109
+[INFO] 2026-05-29 17:07:05,692 - Calculated World Pose -> x: 0.354, y: 0.150, z: 1.053, yaw: 2.911, pitch: -0.211
+[INFO] 2026-05-29 17:07:05,692 - Published VLA waypoint seq=5 frame=world pos=(0.354, 0.150, 1.053) yaw_deg=2.911 pitch_deg=-0.211
+[INFO] 2026-05-29 17:07:05,693 - Received VLA status seq=5 status=1 message=accepted vla waypoint pos_err=0.215 yaw_err=0.630 pitch_err=0.211
+[INFO] 2026-05-29 17:07:05,796 - Received VLA status seq=5 status=2 message=vla waypoint completed pos_err=0.208 yaw_err=0.757 pitch_err=0.000
+[INFO] 2026-05-29 17:07:06,707 - Pose Updated to: [ 0.3159674  -0.16504283 -0.07048985 -2.3660018  -0.18      ]
+[INFO] 2026-05-29 17:07:06,708 - LOOP ITERATION: 5
+[INFO] 2026-05-29 17:07:07,051 - Current Real Pose: [0.3413620774633591, -0.14333881449185717, 1.045142877425804, -2.7475923851631547, -0.31]
+[INFO] 2026-05-29 17:07:07,051 - Current Proprio Real: [0.3387503921985626, -0.15861579775810242, -0.06940579414367676, -2.728297233581543, -0.4699999988079071]
+[INFO] 2026-05-29 17:07:07,325 - --- Model Prediction ---
+[INFO] 2026-05-29 17:07:07,326 - Model Prediction: [0.49159331901359826, -0.19507919822519537, -0.1179010291426279, -0.0467533874382903, -0.010591071832346047]
+[INFO] 2026-05-29 17:07:07,326 - Calculated Deltas -> x: 0.153, y: -0.036, z: -0.048, yaw: 0.050, pitch: -0.137
+[INFO] 2026-05-29 17:07:07,326 - Calculated World Pose -> x: 0.494, y: 0.180, z: 0.997, yaw: 2.698, pitch: -0.447
+[INFO] 2026-05-29 17:07:07,327 - Published VLA waypoint seq=6 frame=world pos=(0.494, 0.180, 0.997) yaw_deg=2.698 pitch_deg=-0.447
+[INFO] 2026-05-29 17:07:07,327 - Received VLA status seq=6 status=1 message=accepted vla waypoint pos_err=0.160 yaw_err=0.293 pitch_err=0.447
+[INFO] 2026-05-29 17:07:07,383 - Received VLA status seq=6 status=2 message=vla waypoint completed pos_err=0.157 yaw_err=0.349 pitch_err=0.000
+[INFO] 2026-05-29 17:07:08,431 - Pose Updated to: [ 0.46412048 -0.21076085 -0.11267412 -1.3696532  -0.42      ]
+[INFO] 2026-05-29 17:07:08,438 - LOOP ITERATION: 6
+[INFO] 2026-05-29 17:07:08,776 - Current Real Pose: [0.4771429167936528, -0.19302125385571495, 0.999850039421387, -1.7264842295089158, -0.52]
+[INFO] 2026-05-29 17:07:08,776 - Current Proprio Real: [0.47454798221588135, -0.20825250446796417, -0.1146986335515976, -1.7071890830993652, -0.6800000071525574]
+[INFO] 2026-05-29 17:07:09,054 - --- Model Prediction ---
+[INFO] 2026-05-29 17:07:09,055 - Model Prediction: [0.6794109324645639, -0.30088663916600106, -0.10960968314261715, -0.03050711591342581, -0.011680630174686693]
+[INFO] 2026-05-29 17:07:09,055 - Calculated Deltas -> x: 0.205, y: -0.093, z: 0.005, yaw: -0.041, pitch: 0.011
+[INFO] 2026-05-29 17:07:09,055 - Calculated World Pose -> x: 0.682, y: 0.286, z: 1.005, yaw: 1.767, pitch: -0.509
+[INFO] 2026-05-29 17:07:09,056 - Published VLA waypoint seq=7 frame=world pos=(0.682, 0.286, 1.005) yaw_deg=1.767 pitch_deg=-0.509
+[INFO] 2026-05-29 17:07:09,057 - Received VLA status seq=7 status=1 message=accepted vla waypoint pos_err=0.202 yaw_err=0.316 pitch_err=0.509
+[INFO] 2026-05-29 17:07:09,118 - Received VLA status seq=7 status=2 message=vla waypoint completed pos_err=0.195 yaw_err=0.405 pitch_err=0.000
+[INFO] 2026-05-29 17:07:10,873 - Pose Updated to: [ 0.6868797  -0.30752906 -0.12488531 -2.2537003  -0.79      ]
+[INFO] 2026-05-29 17:07:10,874 - LOOP ITERATION: 7
+[INFO] 2026-05-29 17:07:11,229 - Current Real Pose: [0.7186809056482972, -0.33146259381153176, 0.9918849474501131, -2.661687178139097, -0.54]
+[INFO] 2026-05-29 17:07:11,229 - Current Proprio Real: [0.7161325812339783, -0.34661248326301575, -0.12266372889280319, -2.642392158508301, -0.699999988079071]
+[INFO] 2026-05-29 17:07:11,522 - --- Model Prediction ---
+[INFO] 2026-05-29 17:07:11,522 - Model Prediction: [0.9523401284719866, -0.4096531659709691, -0.12418104791767733, -0.0594329261438952, -0.008595517183079576]
+[INFO] 2026-05-29 17:07:11,523 - Calculated Deltas -> x: 0.236, y: -0.063, z: -0.002, yaw: -0.763, pitch: 0.208
+[INFO] 2026-05-29 17:07:11,523 - Calculated World Pose -> x: 0.955, y: 0.395, z: 0.990, yaw: 3.425, pitch: -0.332
+[INFO] 2026-05-29 17:07:11,524 - Published VLA waypoint seq=8 frame=world pos=(0.955, 0.395, 0.990) yaw_deg=3.425 pitch_deg=-0.332
+[INFO] 2026-05-29 17:07:11,525 - Received VLA status seq=8 status=1 message=accepted vla waypoint pos_err=0.247 yaw_err=0.773 pitch_err=0.332
+[INFO] 2026-05-29 17:07:11,999 - Received VLA status seq=8 status=2 message=vla waypoint completed pos_err=0.238 yaw_err=1.126 pitch_err=0.000
+[INFO] 2026-05-29 17:07:14,642 - Pose Updated to: [ 0.9890991  -0.45336536 -0.1377054  -1.7109122  -0.62      ]
+[INFO] 2026-05-29 17:07:14,643 - LOOP ITERATION: 8
+[INFO] 2026-05-29 17:07:15,000 - Current Real Pose: [0.9818556629874207, -0.43084059370459027, 0.9683071936193155, -1.8986039265782444, -0.43]
+[INFO] 2026-05-29 17:07:15,000 - Current Proprio Real: [0.9793407917022705, -0.44590187072753906, -0.14624148607254028, -1.879308819770813, -0.5899999737739563]
+[INFO] 2026-05-29 17:07:15,318 - --- Model Prediction ---
+[INFO] 2026-05-29 17:07:15,319 - Model Prediction: [1.1212160671220535, -0.5810800732984007, -0.16097134396512358, -0.025634024653022697, 0.0010512467623120109]
+[INFO] 2026-05-29 17:07:15,320 - Calculated Deltas -> x: 0.142, y: -0.135, z: -0.015, yaw: 0.411, pitch: 0.650
+[INFO] 2026-05-29 17:07:15,320 - Calculated World Pose -> x: 1.124, y: 0.566, z: 0.954, yaw: 1.488, pitch: 0.220
+[INFO] 2026-05-29 17:07:15,320 - Published VLA waypoint seq=9 frame=world pos=(1.124, 0.566, 0.954) yaw_deg=1.488 pitch_deg=0.220
+[INFO] 2026-05-29 17:07:15,321 - Received VLA status seq=9 status=1 message=accepted vla waypoint pos_err=0.193 yaw_err=0.308 pitch_err=0.220
+[INFO] 2026-05-29 17:07:15,532 - Received VLA status seq=9 status=2 message=vla waypoint completed pos_err=0.184 yaw_err=0.661 pitch_err=0.000
+[INFO] 2026-05-29 17:07:17,033 - Pose Updated to: [ 1.1293745  -0.5542135  -0.15741625 -2.24448    -0.16      ]
+[INFO] 2026-05-29 17:07:17,034 - LOOP ITERATION: 9
+[INFO] 2026-05-29 17:07:17,375 - Current Real Pose: [1.1586195982185936, -0.5693992921774108, 0.9464498521036725, -2.330194583079471, 0.26]
+[INFO] 2026-05-29 17:07:17,375 - Current Proprio Real: [1.1561514139175415, -0.58440101146698, -0.1680988222360611, -2.310899496078491, 0.10000000149011612]
+[INFO] 2026-05-29 17:07:17,668 - --- Model Prediction ---
+[INFO] 2026-05-29 17:07:17,668 - Model Prediction: [1.2980078891339146, -0.5944272164078881, -0.17842450050607467, -0.050496430102752315, 0.0019329384442069303]
+[INFO] 2026-05-29 17:07:17,670 - Calculated Deltas -> x: 0.142, y: -0.010, z: -0.010, yaw: -0.582, pitch: 0.011
+[INFO] 2026-05-29 17:07:17,670 - Calculated World Pose -> x: 1.300, y: 0.579, z: 0.936, yaw: 2.913, pitch: 0.271
+[INFO] 2026-05-29 17:07:17,671 - Published VLA waypoint seq=10 frame=world pos=(1.300, 0.579, 0.936) yaw_deg=2.913 pitch_deg=0.271
+[INFO] 2026-05-29 17:07:17,673 - Received VLA status seq=10 status=1 message=accepted vla waypoint pos_err=0.135 yaw_err=0.257 pitch_err=0.271
+[INFO] 2026-05-29 17:07:17,891 - Received VLA status seq=10 status=2 message=vla waypoint completed pos_err=0.141 yaw_err=0.533 pitch_err=0.000
+[INFO] 2026-05-29 17:07:19,306 - Pose Updated to: [ 1.2847618  -0.5983182  -0.17378919 -1.991034    0.01      ]
+[INFO] 2026-05-29 17:07:19,307 - Detected x,y,z,yaw,pitch continuous 10 steps change is very small, automatically end task.
