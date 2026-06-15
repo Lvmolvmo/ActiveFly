@@ -401,6 +401,29 @@ video {
   cursor: default;
 }
 
+.resource-link img {
+  width: 19px;
+  height: 19px;
+  display: block;
+  object-fit: contain;
+}
+
+.resource-link-active {
+  border-color: rgba(237, 197, 107, 0.38);
+  background: rgba(29, 25, 12, 0.66);
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resource-link-active:hover,
+.resource-link-active:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(237, 197, 107, 0.72);
+  background: rgba(43, 36, 14, 0.86);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24);
+}
+
 .resource-link em {
   color: var(--accent-gold);
   font-size: 0.62rem;
