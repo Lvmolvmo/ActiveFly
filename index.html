@@ -401,46 +401,28 @@ each instruction.</figcaption>
           <p class="section-intro">A sample trajectory from the benchmark is shown with its first-person observation video and synchronized UAV motion path. The image sequence in <code>sample/</code> is encoded at 0.15 seconds per frame.</p>
         </div>
 
-        <div class="sample-layout">
-          <figure class="sample-panel sample-video-panel" data-reveal>
-            <video controls autoplay muted loop playsinline preload="metadata" poster="sample/000001.png" aria-label="ActiveFly sample observation video">
-              <source src="static/sample/sample_frames.mp4" type="video/mp4">
-            </video>
-            <figcaption>Observation video generated from 80 sample frames at 0.15 s/frame.</figcaption>
-          </figure>
+<div class="sample-layout">
+  <!-- 左侧：视频 + figcaption + Instruction -->
+  <figure class="sample-panel sample-video-panel" data-reveal>
+    <video controls autoplay muted loop playsinline preload="metadata" poster="sample/000001.png" aria-label="ActiveFly sample observation video">
+      <source src="static/sample/sample_frames.mp4" type="video/mp4">
+    </video>
+    <figcaption>Observation video generated from 80 sample frames at 0.15 s/frame.</figcaption>
+    <!-- 新增的 Instruction 放在这里 -->
+    <div class="sample-instruction">
+      <span>Instruction</span>
+      <p>Move right until you are in front of the blue overhead billboard while adjusting camera left to keep the blue overhead billboard in the centre of the camera. Then move down until you are in front of the blue overhead billboard while adjusting camera up to keep the blue overhead billboard in the centre of the camera.</p>
+    </div>
+  </figure>
 
-          <figure class="sample-panel sample-trajectory-panel" data-reveal data-delay="100">
-            <video controls autoplay muted loop playsinline preload="metadata" poster="static/sample/sample_3d_poster.png" aria-label="ActiveFly sample 3D trajectory video">
-              <source src="static/sample/sample_3d.mp4" type="video/mp4">
-            </video>
-            <figcaption>White-background 3D motion trajectory generated from <code>sample/log.json</code>, synchronized to the image frames.</figcaption>
-          </figure>
-        </div>
-
-        <div class="sample-meta-grid" data-reveal>
-          <article>
-            <span>Target</span>
-            <strong>Blue overhead billboard</strong>
-          </article>
-          <article>
-            <span>Environment</span>
-            <strong>Beijing</strong>
-          </article>
-          <article>
-            <span>Frames</span>
-            <strong>80 frames</strong>
-          </article>
-          <article>
-            <span>Duration</span>
-            <strong>12.00 s</strong>
-          </article>
-        </div>
-
-        <div class="sample-instruction" data-reveal>
-          <span>Instruction</span>
-          <p>Move right until you are in front of the blue overhead billboard while adjusting camera left to keep the blue overhead billboard in the centre of the camera. Then move down until you are in front of the blue overhead billboard while adjusting camera up to keep the blue overhead billboard in the centre of the camera.</p>
-        </div>
-
+  <!-- 右侧：仅视频 + figcaption，保持不变 -->
+  <figure class="sample-panel sample-trajectory-panel" data-reveal data-delay="100">
+    <video controls autoplay muted loop playsinline preload="metadata" poster="static/sample/sample_3d_poster.png" aria-label="ActiveFly sample 3D trajectory video">
+      <source src="static/sample/sample_3d.mp4" type="video/mp4">
+    </video>
+    <figcaption>White-background 3D motion trajectory generated from <code>sample/log.json</code>, synchronized to the image frames.</figcaption>
+  </figure>
+</div>
         <div class="sample-actions" aria-label="Sample action labels" data-reveal>
           <span>right x24</span>
           <span>turn_left x6</span>

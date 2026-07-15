@@ -1400,3 +1400,46 @@ code {
   text-align: center;
   /* 宽度自动撑满列宽 */
 }
+
+/* 1. 让两列等高 */
+.sample-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.72fr) minmax(0, 1.28fr);
+  align-items: stretch;          /* 关键：两列高度一致 */
+  gap: 20px;
+}
+
+/* 2. 左侧 figure 变成 flex 列，以便 instruction 沉底 */
+.sample-video-panel {
+  display: flex;
+  flex-direction: column;
+  /* 原有 padding 和背景保持不变 */
+}
+
+/* 3. 视频和 figcaption 占上部，instruction 推到底部 */
+.sample-video-panel video {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;             /* 保持原样 */
+  border-radius: calc(var(--radius) - 2px);
+}
+
+.sample-video-panel figcaption {
+  margin-top: 12px;
+  /* 其他不变 */
+}
+
+/* 4. instruction 沉底 */
+.sample-video-panel .sample-instruction {
+  margin-top: auto;              /* 自动推到底部 */
+  /* 保持原有的 padding、边框、背景等样式 */
+  padding: 20px;
+  border: 1px solid rgba(128, 231, 209, 0.16);
+  border-radius: var(--radius);
+  background: rgba(8, 18, 18, 0.72);
+}
+
+/* 5. 右侧 figure 保持原有样式（无需改） */
+.sample-trajectory-panel {
+  /* 保持原有样式，它会被拉伸至与左侧等高 */
+}
