@@ -186,11 +186,8 @@
         </div>
 
         <figure class="paper-figure" data-reveal>
-          <img src="static/paper/2.jpg" alt="Examples of Air-EQA, OBP, and FLUC tasks" loading="lazy" decoding="async">
-          <figcaption>Figure 2. Examples of the three tasks in ActiveFly-Bench. Air-EQA spans five question categories:
-object recognition, attribute recognition, counting, spatial understanding, and world knowledge, with
-each example illustrated by the first and last frames. Observation Behavior Planning bridges Air-EQA
-and FLUC. FLUC includes 10 elementary and 4 complex active perception trajectories.</figcaption>
+          <img src="static/paper/figure-tasks.png" alt="Examples of Air-EQA, OBP, and FLUC tasks" loading="lazy" decoding="async">
+          <figcaption>Figure 2. Air-EQA covers object, attribute, counting, spatial, and world-knowledge questions; OBP bridges the question and FLUC control instruction.</figcaption>
         </figure>
       </div>
     </section>
@@ -231,12 +228,8 @@ and FLUC. FLUC includes 10 elementary and 4 complex active perception trajectori
         </div>
 
         <figure class="paper-figure" data-reveal>
-          <img src="static/paper/3.jpg" alt="Dataset generation pipeline and statistics" loading="lazy" decoding="async">
-          <figcaption>Figure 3. Dataset Generation Pipeline and Statistics. (a) The data generation pipeline of three tasks.
-(b) The distribution of FLUC trajectory lengths. (c) Word-count distributions of language annotations.
-(d) Dataset composition statistics. (e) A word cloud generated from the language annotations.
-smooth trajectory, which is replayed by the UAV to automatically generate 5 to 40 demonstrations for
-each instruction.</figcaption>
+          <img src="static/paper/figure-dataset.png" alt="Dataset generation pipeline and statistics" loading="lazy" decoding="async">
+          <figcaption>Figure 3. Dataset generation pipeline, trajectory length distribution, annotation length distribution, data composition, and word cloud.</figcaption>
         </figure>
       </div>
     </section>
@@ -458,13 +451,13 @@ each instruction.</figcaption>
           <p class="section-intro">ActiveFly first uses a VLM to plan the observation behavior, passes that plan to a VLA model for fine-grained UAV action prediction, and then answers the embodied question from sampled observation history.</p>
         </div>
 
-<div class="agent-board" data-reveal>
-  <div class="agent-core">ActiveFly</div>
-  <div class="agent-node">Question + Initial View</div>
-  <div class="agent-node">VLM Observation Plan</div>
-  <div class="agent-node">VLA UAV Actions</div>
-  <div class="agent-node">Answer from History</div>
-</div>
+        <div class="agent-board" data-reveal>
+          <div class="agent-node">Question + Initial View</div>
+          <div class="agent-node">VLM Observation Plan</div>
+          <div class="agent-core">ActiveFly</div>
+          <div class="agent-node">VLA UAV Actions</div>
+          <div class="agent-node">Answer from History</div>
+        </div>
 
         <div class="feature-grid compact">
           <article class="feature-card" data-reveal>
@@ -486,7 +479,82 @@ each instruction.</figcaption>
       </div>
     </section>
 
+    <section class="section contrast" id="results">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section-tag">Experiments</p>
+          <h2>Performance and Failure Modes</h2>
+          <p class="section-intro">The evaluation combines VLMs such as GPT-5.4, Gemini-2.5-Pro, and Qwen3-VL-Max with VLA models including OpenVLA and Pi-0.5, plus human upper-bound settings.</p>
+        </div>
 
+        <div class="results-layout">
+          <figure class="paper-figure" data-reveal>
+            <img src="static/paper/table-performance.png" alt="Performance comparison table" loading="lazy" decoding="async">
+            <figcaption>Table 2. Representative baselines across EP, Air-EQA, OBP, and FLUC.</figcaption>
+          </figure>
+          <div class="result-notes" data-reveal>
+            <article>
+              <strong>Pi-0.5 improves action success.</strong>
+              <p>Pi-0.5-based agents reach much higher EP success than OpenVLA-based agents, with stronger FLUC SR and OSR.</p>
+            </article>
+            <article>
+              <strong>Human upper bound remains far away.</strong>
+              <p>The human agent reaches 97.3 EP SR, 98.2 Air-EQA accuracy, and 99.1 OBP accuracy.</p>
+            </article>
+            <article>
+              <strong>Planning and viewpoint control are bottlenecks.</strong>
+              <p>The analysis highlights OBP failure, Air-EQA escape, and imprecise stopping near target viewpoints.</p>
+            </article>
+          </div>
+        </div>
+
+        <figure class="paper-figure" data-reveal>
+          <img src="static/paper/figure-error.png" alt="Category-level performance and error breakdown" loading="lazy" decoding="async">
+          <figcaption>Figure 4. Category-level performance, error breakdown, and an Air-EQA escaped case.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="deployment">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="section-tag">Real-World Deployment</p>
+          <h2>Ground-Drone Collaborative Active Perception</h2>
+          <p class="section-intro">The real-world system streams first-person video and UAV state to a ground station, runs VLM/VLA inference on a server, and returns actions for closed-loop execution.</p>
+        </div>
+
+        <div class="deployment-grid">
+          <figure class="paper-figure" data-reveal>
+            <img src="static/paper/figure-deployment.png" alt="Real-world deployment of ActiveFly agent" loading="lazy" decoding="async">
+            <figcaption>Figure 5. ActiveFly deployment examples in outdoor and indoor environments.</figcaption>
+          </figure>
+          <div class="latency-panel" data-reveal>
+            <div class="latency-row"><span>Image transmission</span><strong>~120 ms</strong></div>
+            <div class="latency-row"><span>VLA inference</span><strong>~250 ms</strong></div>
+            <div class="latency-row"><span>Motion planning</span><strong>~10 ms</strong></div>
+            <div class="latency-row"><span>PID response</span><strong>~10 ms</strong></div>
+            <div class="latency-row total"><span>Total control loop</span><strong>~390 ms</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contrast" id="citation">
+      <div class="container narrow">
+        <div class="citation-head" data-reveal>
+          <div>
+            <p class="section-tag">Citation</p>
+            <h2>BibTeX</h2>
+          </div>
+          <button class="copy-button" type="button" id="copyBibtex">Copy</button>
+        </div>
+        <pre data-reveal><code id="bibtexCode">@misc{activeflybench2026,
+  title = {ActiveFly-Bench: Aligning Embodied Question Answering with Vision-Language-Action for Aerial Embodied Perception},
+  author = {Weichen Zhang, Shiquan Yu, Yinan Zhu, Peizhi Tang, Shilong Ji, Zhiyuan Deng, Tianyi Lyu, Haoyang Wang, Xin Zeng, Chen Gao, Yong Li, Xinlei Chen },
+  year = {2026},
+}</code></pre>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">

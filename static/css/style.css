@@ -1372,3 +1372,31 @@ code {
     transition: none !important;
   }
 }
+
+
+.agent-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);   /* 四列等宽，占满整行 */
+  gap: 1.5rem;                            /* 列间距与行间距 */
+  justify-items: center;                  /* 每个格子内容居中（可选） */
+}
+
+/* ActiveFly：跨所有列，宽度拉满整行，内容居中 */
+.agent-core {
+  grid-column: 1 / -1;          /* 从第1列到最后一列 */
+  justify-self: stretch;        /* 让单元格宽度拉满整行（背景拉长） */
+  text-align: center;           /* 文字居中 */
+  padding: 1rem 0;              /* 上下内边距，左右可由背景撑满 */
+  border-radius: 12px;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;        /* 与第二行的间距（如果不用gap，可用margin） */
+}
+
+/* 四个节点：自动进入第二行四个列 */
+.agent-node {
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  /* 宽度自动撑满列宽 */
+}
